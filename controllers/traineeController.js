@@ -109,7 +109,7 @@ const setScore= async(req,res)=>{
         let data=req.body;
         const trainee= new traineeModel.gameModel(data);
         await trainee.save();
-        res.status(201).send("created trainee");
+        res.status(201).send("created player");
         }
         catch(err){
             res.status(500).json(err.message);

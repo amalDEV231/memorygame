@@ -6,7 +6,8 @@ conn.dbConnection();
 
 const gameSchema= new Schema({
     "name":String,
-    "score":Number
+    "score":Number,
+    "cards":Number
 });
 
 const gameModel=  mongoose.model("memorygames",gameSchema);
