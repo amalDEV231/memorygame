@@ -1,0 +1,37 @@
+{
+	"info": {
+		"_postman_id": "ffa131a7-82dd-45dc-a923-17b6a6e4e868",
+		"name": "memorygame",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37731050"
+	},
+	"item": [
+		{
+			"name": "setScore",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Player2\",\n    \"score\":88,\n    \"cards\":36\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://memorygame-liard.vercel.app/api/v1/trainees/setScore"
+			},
+			"response": []
+		},
+		{
+			"name": "getScore",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://memorygame-liard.vercel.app/api/v1/trainees/getScore"
+			},
+			"response": []
+		}
+	]
+}
