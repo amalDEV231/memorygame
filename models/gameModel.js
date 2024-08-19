@@ -9,7 +9,22 @@ const gameSchema= new Schema({
     "score":Number,
     "cards":Number
 });
+const scoreSchema= new Schema({
+    "20cards":{
+        "name":String,
+        "score":Number
+    },
+    "36cards":{
+        "name":String,
+        "score":Number
+    },
+    "50cards":{
+        "name":String,
+        "score":Number
+    }
+});
 
-const gameModel=  mongoose.model("memorygames",gameSchema);
+const gameModel=  mongoose.model("players",gameSchema);
+const scoreModel=mongoose.model("highscores",scoreSchema);
 
-module.exports = { gameModel };
+module.exports = { gameModel , scoreModel};
