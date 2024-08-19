@@ -24,9 +24,19 @@ const setScore = async (req, res) => {
 
         // Determine which high score field to check/update
         const cardField = `${cards}cards`;
-        const highScore = await traineeModel.scoreModel.findOne();
+        
+        // Find the existing high score or create a new one if it doesn't exist
+        let highScore = await traineeModel.scoreModel.findOne();
+        if (!highScore) {
+            highScore = new traineeModel.scoreModel({
+                "20cards": { name: "", score: Infinity },
+                "36cards": { name: "", score: Infinity },
+                "50cards": { name: "", score: Infinity }
+            });
+        }
 
-        if (highScore[cardField].score > score) {
+        // Check if the new score is lower (better) than the current high score
+        if (highScore[cardField] && (highScore[cardField].score > score || highScore[cardField].score === undefined)) {
             highScore[cardField] = { name, score };
             await highScore.save();
             console.log(`High score updated for ${cards} cards!`);
